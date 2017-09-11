@@ -1,0 +1,63 @@
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+#party_library {
+  border: solid 1px #CCC;
+}
+
+.servant_label > div {
+  float: left;
+}
+
+.servant_label > .slot {
+  width: 2em;
+}
+
+.servant_commands {
+  margin-top: 10px;
+}
+
+.commands .commandcard {
+  float: left;
+  width: 50px;
+  height: 50px;
+  background-color: #CCC;
+}
+
+.commands .commandcard {
+  margin-left: 5px;
+}
+.commands > .commandcard:first-of-type {
+  margin-left: 0;
+}
+
+.commands .commandcard.quick {
+  background-color: #00CC00;
+}
+.commands .commandcard.arts {
+  background-color: #0000CC;
+}
+.commands .commandcard.buster {
+  background-color: #CC0000;
+}
+
+.commands .commandcard.used {
+  opacity: 0.2;
+}
+
+#party_register > .servant_info {
+  padding-bottom: 10px;
+  background-color: #EEE;
+}
+#party_register > .servant_info:nth-child(even) {
+  background-color: #CCE;
+}
+
+input.commandcardnum {
+  width: 30px;
+}
