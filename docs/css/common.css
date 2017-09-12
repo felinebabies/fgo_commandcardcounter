@@ -52,11 +52,21 @@
 .commands .commandcard.quick {
   background-color: #00CC00;
 }
+.commands .commandcard.quick:before {
+  content: "Quick";
+}
 .commands .commandcard.arts {
   background-color: #0000CC;
+  color: #FFFF00;
+}
+.commands .commandcard.arts:before {
+  content: "Arts";
 }
 .commands .commandcard.buster {
   background-color: #CC0000;
+}
+.commands .commandcard.buster:before {
+  content: "Buster";
 }
 
 .commands .commandcard.used {
