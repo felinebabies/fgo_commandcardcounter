@@ -28,11 +28,24 @@
   height: 50px;
   background-color: #CCC;
 }
+.servant_label .label {
+  float: left;
+  width: 50px;
+  min-height: 50px;
+  background-color: #F2F2F2;
+}
 
 .commands .commandcard {
   margin-left: 5px;
 }
 .commands > .commandcard:first-of-type {
+  margin-left: 0;
+}
+
+.servant_label .label {
+  margin-left: 5px;
+}
+.servant_label > .label:first-of-type {
   margin-left: 0;
 }
 

@@ -61,11 +61,54 @@ function update_servant_info(servantslot) {
   update_servant_commandcards(slotnum);
 }
 
+/* 次ターンの手札が確定できるかを確認する */
+function check_next_hand(){
+  /* 次ターン確定コマンドカードをリセット */
+  $("#cardleft .commandcard").each(function(){
+    var typearr = ["quick", "arts", "buster"];
+
+    $(this).text("");
+    for(var i = 0 ; i < typearr.length ; i++){
+      $(this).removeClass(typearr[i]);
+    }
+  });
+  $("#cardleft > .servant_label > .label").each(function(){
+    $(this).text("");
+  });
+
+  var nexthandarr = [];
+  for(var i = 0 ; i < 3 ; i++){
+    /* パーティーの先頭から3人までのコマンドカードを集計 */
+    var slotname = "servant_display_" + (i + 1);
+    $("#" + slotname + " .commandcard").each(function(){
+      if(!($(this).hasClass("used"))){
+        var cardtype = $(this).attr("class").replace("commandcard","").trim();
+        nexthandarr.push({
+          "name" : $("#" + slotname + " .name").text(),
+          "type" : cardtype
+        });
+      }
+    });
+  }
+
+  /* 未使用カードが5枚丁度なら、次の手札が確定 */
+  if(nexthandarr.length == 5){
+    console.log(nexthandarr);
+    $.each($("#cardleft .commandcard"), function(i, val){
+      $(val).addClass(nexthandarr[i]["type"]);
+      $("#cardleft > .servant_label > .label:eq(" + i +  ")").text(nexthandarr[i]["name"]);
+    });
+  }
+}
+
 
 $(document).ready(function(){
   /* コマンドカードクリック時に、使用済みクラスを付ける */
   $(".commandcard").click(function(){
     $(this).toggleClass("used");
+
+    /* 次ターンの手札が確定できるかを確認する */
+    check_next_hand();
   });
 
 
