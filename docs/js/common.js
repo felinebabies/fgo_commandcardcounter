@@ -61,8 +61,7 @@ function update_servant_info(servantslot) {
   update_servant_commandcards(slotnum);
 }
 
-/* 次ターンの手札が確定できるかを確認する */
-function check_next_hand(){
+function reset_next_hand(){
   /* 次ターン確定コマンドカードをリセット */
   $("#cardleft .commandcard").each(function(){
     var typearr = ["quick", "arts", "buster"];
@@ -75,6 +74,12 @@ function check_next_hand(){
   $("#cardleft > .servant_label > .label").each(function(){
     $(this).text("");
   });
+}
+
+/* 次ターンの手札が確定できるかを確認する */
+function check_next_hand(){
+  /* 次ターン確定コマンドカードをリセット */
+  reset_next_hand();
 
   var nexthandarr = [];
   for(var i = 0 ; i < 3 ; i++){
@@ -131,5 +136,8 @@ $(document).ready(function(){
     $(".commandcard").each(function(){
       $(this).removeClass("used");
     });
+
+    /* 次ターンの確定手札をリセット */
+    reset_next_hand();
   });
 });
