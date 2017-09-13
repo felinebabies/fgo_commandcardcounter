@@ -84,3 +84,8 @@
 input.commandcardnum {
   width: 30px;
 }
+
+#party_encoded_url {
+  width: 500px;
+  height: 90px;
+}

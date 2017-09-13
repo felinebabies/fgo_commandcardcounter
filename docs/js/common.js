@@ -2,6 +2,10 @@
 function update_servant_name(slotnum) {
   var slotname = "servant_display_" + slotnum;
   var servantname = $("#servant_" + slotnum + "_name").val();
+  /* セパレータ文字列があればエスケープする */
+  servantname = servantname.replace(/<>/g, "＜＞");
+  $("#servant_" + slotnum + "_name").val(servantname);
+
   if(servantname == ""){
     servantname = "empty";
   }
@@ -50,6 +54,49 @@ function update_servant_commandcards(slotnum) {
 
 }
 
+/* 文字列化パーティー情報を取得する */
+function get_party_str(){
+  var typearr = ["quick", "arts", "buster"];
+
+  var partystrarr = [];
+  for(var i = 0 ; i < 6 ; i++){
+    /* カード枚数 */
+    var servant_str = "";
+    $.each(typearr, function(index, val){
+      var selector = "#servant_" + (i + 1) + "_" + val;
+      var cardnum = $(selector).val();
+      servant_str += cardnum;
+    });
+
+    /* サーヴァント名 */
+    var servantname = $("#servant_" + (i + 1)  + "_name").val();
+
+    servant_str += servantname;
+
+    partystrarr.push(servant_str);
+  }
+  return(partystrarr.join("<>"));
+}
+
+/* パーティー情報リンクの更新 */
+function update_party_encoded_url(){
+  /* パーティー情報の文字列化 */
+  var partystr = get_party_str();
+
+  /* パーティー情報のBASE64エンコード */
+  var encodedstr = btoa(unescape(encodeURIComponent(partystr)));
+
+  /* URLへのパラメータ付加 */
+  var thispageurl = $(location).attr("protocol");
+  thispageurl += "://";
+  thispageurl += $(location).attr("host");
+  thispageurl += $(location).attr("pathname");
+
+  var linkurl = thispageurl + "?party=" + encodedstr;
+
+  $("#party_encoded_url").text(linkurl);
+}
+
 /* 指定番のサーヴァント情報を更新する */
 function update_servant_info(servantslot) {
   var slotnum = parseInt(servantslot, 10);
@@ -59,6 +106,9 @@ function update_servant_info(servantslot) {
 
   /* コマンドカードの更新 */
   update_servant_commandcards(slotnum);
+
+  /* パーティー情報リンクの更新 */
+  update_party_encoded_url();
 }
 
 function reset_next_hand(){
