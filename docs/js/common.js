@@ -88,7 +88,7 @@ function update_party_encoded_url(){
 
   /* URLへのパラメータ付加 */
   var thispageurl = $(location).attr("protocol");
-  thispageurl += "://";
+  thispageurl += "//";
   thispageurl += $(location).attr("host");
   thispageurl += $(location).attr("pathname");
 
