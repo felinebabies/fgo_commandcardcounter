@@ -156,6 +156,46 @@ function check_next_hand(){
   }
 }
 
+/* クエリパラメータpartyが指定されていたら、パーティー情報をデコードする */
+function loadpartysettings(){
+  var typearr = ["quick", "arts", "buster"];
+  var qparam = $(location).attr("search");
+  if(qparam != ""){
+    var slicedparam = qparam.slice(1);
+    var paramarr = slicedparam.split("&");
+    /* パラメータpartyを抜き出す */
+    var partyarr = paramarr.filter(function(item, index){
+      if(item.indexOf("party=") == 0){
+        return true;
+      }
+    })
+
+    var encodedparty = partyarr[0].slice(6);
+
+    /* BASE64デコードを行う */
+    var partystr = decodeURIComponent(escape(atob(encodedparty)));
+
+    /* デコード情報を元にパーティー情報を復元する */
+    var partyarr = partystr.split("<>");
+    $.each(partyarr, function(index, val){
+      /* 先頭3文字はコマンドカード枚数情報 */
+      $.each(typearr, function(typeindex, typeval){
+        var commandselector = "#servant_" + (index + 1) + "_" + typeval;
+        var cardcount = parseInt(val.charAt(typeindex), 10);
+        $(commandselector).val(cardcount);
+      });
+
+      /* 残りの文字はサーヴァント名 */
+      var nameselector = "#servant_" + (index + 1) + "_name";
+      $(nameselector).val(val.slice(3));
+    });
+
+    /* サーヴァント情報を更新する */
+    for(var i = 0 ; i < 6 ; i++){
+      update_servant_info(i + 1);
+    }
+  }
+}
 
 $(document).ready(function(){
   /* コマンドカードクリック時に、使用済みクラスを付ける */
@@ -190,4 +230,7 @@ $(document).ready(function(){
     /* 次ターンの確定手札をリセット */
     reset_next_hand();
   });
+
+  /* クエリパラメータpartyが指定されていたら、パーティー情報をデコードする */
+  loadpartysettings();
 });
