@@ -97,7 +97,7 @@ function update_party_encoded_url(){
   $("#party_encoded_url").text(linkurl);
 
   /* リンク先を置き換える */
-  var tweetmessage = "FGOコマンドカードカウンター 私の編成を紹介します： ";
+  var tweetmessage = "#FGOコマンドカードカウンター 私の編成を紹介します： ";
   var tweetstr = "http://twitter.com/?status=" + encodeURIComponent(tweetmessage + linkurl);
   $("#tweetlink").attr("href", tweetstr);
 }
