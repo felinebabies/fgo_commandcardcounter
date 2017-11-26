@@ -139,7 +139,7 @@ function check_next_hand(){
   var nexthandarr = [];
   for(var i = 0 ; i < 3 ; i++){
     /* パーティーの先頭から3人までのコマンドカードを集計 */
-    var slotname = "servant_display_" + (i + 1);
+    var slotname = $(".servant_commands").eq(i).attr("id");
     $("#" + slotname + " .commandcard").each(function(){
       if(!($(this).hasClass("used"))){
         var cardtype = $(this).attr("class").replace("commandcard","").trim();
