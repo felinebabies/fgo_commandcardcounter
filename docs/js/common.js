@@ -236,6 +236,12 @@ $(document).ready(function(){
     reset_next_hand();
   });
 
+  /* ドラッグアンドドロップによるソートを有効化する */
+  $("#servants_list").sortable({
+    cursor: "move",
+    opacity: 0.7
+  });
+
   /* クエリパラメータpartyが指定されていたら、パーティー情報をデコードする */
   loadpartysettings();
 });

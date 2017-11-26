@@ -4,7 +4,9 @@
     <meta charset='utf-8'>
     <title>FGOコマンドカードカウンター</title>
     <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="./js/common.js"></script>
+  	<link href="./css/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css">
   	<link href="./css/common.css" rel="stylesheet" type="text/css">
   </head>
   <body>
@@ -14,170 +16,172 @@
       <div id="party_library">
         <h2>カウンター</h2>
         <button type="button" id="resetcount" name="resetcount" value="reset">カウントリセット</button>
-        <div id="servant_display_1" class="servant_commands">
-          <div class="servant_label clearfix">
-            <div class="slot">1</div>
-            <div class="name">ジャンヌ・ダルク</div>
-          </div><!-- servant_label -->
+        <div id="servants_list">
+          <div id="servant_display_1" class="servant_commands">
+            <div class="servant_label clearfix">
+              <div class="slot">1</div>
+              <div class="name">ジャンヌ・ダルク</div>
+            </div><!-- servant_label -->
+            <div class="commands clearfix">
+              <div class="commandcard quick">&nbsp;</div>
+              <div class="commandcard arts">&nbsp;</div>
+              <div class="commandcard arts">&nbsp;</div>
+              <div class="commandcard arts">&nbsp;</div>
+              <div class="commandcard buster">&nbsp;</div>
+            </div><!-- /commands -->
+          </div><!-- /servant_commands -->
+          <div id="servant_display_2" class="servant_commands">
+            <div class="servant_label clearfix">
+              <div class="slot">2</div>
+              <div class="name">empty</div>
+            </div><!-- servant_label -->
+            <div class="commands clearfix">
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+            </div><!-- /commands -->
+          </div><!-- /servant_commands -->
+          <div id="servant_display_3" class="servant_commands">
+            <div class="servant_label clearfix">
+              <div class="slot">3</div>
+              <div class="name">empty</div>
+            </div><!-- servant_label -->
+            <div class="commands clearfix">
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+            </div><!-- /commands -->
+          </div><!-- /servant_commands -->
+          <div id="servant_display_4" class="servant_commands">
+            <div class="servant_label clearfix">
+              <div class="slot">4</div>
+              <div class="name">empty</div>
+            </div><!-- servant_label -->
+            <div class="commands clearfix">
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+            </div><!-- /commands -->
+          </div><!-- /servant_commands -->
+          <div id="servant_display_5" class="servant_commands">
+            <div class="servant_label clearfix">
+              <div class="slot">5</div>
+              <div class="name">empty</div>
+            </div><!-- servant_label -->
+            <div class="commands clearfix">
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+            </div><!-- /commands -->
+          </div><!-- /servant_commands -->
+          <div id="servant_display_6" class="servant_commands">
+            <div class="servant_label clearfix">
+              <div class="slot">6</div>
+              <div class="name">empty</div>
+            </div><!-- servant_label -->
+            <div class="commands clearfix">
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+              <div class="commandcard">&nbsp;</div>
+            </div><!-- /commands -->
+          </div><!-- /servant_commands -->
+        </div><!-- /party_library -->
+        <div id="cardleft">
+          <p>次ターン確定コマンドカード</p>
           <div class="commands clearfix">
-            <div class="commandcard quick">&nbsp;</div>
-            <div class="commandcard arts">&nbsp;</div>
-            <div class="commandcard arts">&nbsp;</div>
-            <div class="commandcard arts">&nbsp;</div>
-            <div class="commandcard buster">&nbsp;</div>
+            <div class="commandcard">&nbsp;</div>
+            <div class="commandcard">&nbsp;</div>
+            <div class="commandcard">&nbsp;</div>
+            <div class="commandcard">&nbsp;</div>
+            <div class="commandcard">&nbsp;</div>
           </div><!-- /commands -->
-        </div><!-- /servant_commands -->
-        <div id="servant_display_2" class="servant_commands">
           <div class="servant_label clearfix">
-            <div class="slot">2</div>
-            <div class="name">empty</div>
-          </div><!-- servant_label -->
-          <div class="commands clearfix">
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
+            <div class="label">&nbsp;</div>
+            <div class="label">&nbsp;</div>
+            <div class="label">&nbsp;</div>
+            <div class="label">&nbsp;</div>
+            <div class="label">&nbsp;</div>
           </div><!-- /commands -->
-        </div><!-- /servant_commands -->
-        <div id="servant_display_3" class="servant_commands">
-          <div class="servant_label clearfix">
-            <div class="slot">3</div>
-            <div class="name">empty</div>
-          </div><!-- servant_label -->
-          <div class="commands clearfix">
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-          </div><!-- /commands -->
-        </div><!-- /servant_commands -->
-        <div id="servant_display_4" class="servant_commands">
-          <div class="servant_label clearfix">
-            <div class="slot">4</div>
-            <div class="name">empty</div>
-          </div><!-- servant_label -->
-          <div class="commands clearfix">
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-          </div><!-- /commands -->
-        </div><!-- /servant_commands -->
-        <div id="servant_display_5" class="servant_commands">
-          <div class="servant_label clearfix">
-            <div class="slot">5</div>
-            <div class="name">empty</div>
-          </div><!-- servant_label -->
-          <div class="commands clearfix">
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-          </div><!-- /commands -->
-        </div><!-- /servant_commands -->
-        <div id="servant_display_6" class="servant_commands">
-          <div class="servant_label clearfix">
-            <div class="slot">6</div>
-            <div class="name">empty</div>
-          </div><!-- servant_label -->
-          <div class="commands clearfix">
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-            <div class="commandcard">&nbsp;</div>
-          </div><!-- /commands -->
-        </div><!-- /servant_commands -->
-      </div><!-- /party_library -->
-      <div id="cardleft">
-        <p>次ターン確定コマンドカード</p>
-        <div class="commands clearfix">
-          <div class="commandcard">&nbsp;</div>
-          <div class="commandcard">&nbsp;</div>
-          <div class="commandcard">&nbsp;</div>
-          <div class="commandcard">&nbsp;</div>
-          <div class="commandcard">&nbsp;</div>
-        </div><!-- /commands -->
-        <div class="servant_label clearfix">
-          <div class="label">&nbsp;</div>
-          <div class="label">&nbsp;</div>
-          <div class="label">&nbsp;</div>
-          <div class="label">&nbsp;</div>
-          <div class="label">&nbsp;</div>
-        </div><!-- /commands -->
-      </div><!-- /cardleft -->
-      <div id="party_register">
-        <h2>パーティー情報編集</h2>
-        <div class="servant_info">
-          <label for="servant_1_name">サーヴァント一人目</label>
-          <input id="servant_1_name" type="text" />
-          <br />
-          <label for="servant_1_quick">Quick枚数</label>
-          <input id="servant_1_quick" type="number" value="1" class="commandcardnum" />
-          <label for="servant_1_arts">Arts枚数</label>
-          <input id="servant_1_arts" type="number" value="1" class="commandcardnum" />
-          <label for="servant_1_buster">Buster枚数</label>
-          <input id="servant_1_buster" type="number" value="1" class="commandcardnum" />
-        </div><!-- /servant_info -->
-        <div class="servant_info">
-          <label for="servant_2_name">サーヴァント二人目</label>
-          <input id="servant_2_name" type="text" />
-          <br />
-          <label for="servant_2_quick">Quick枚数</label>
-          <input id="servant_2_quick" type="number" value="1" class="commandcardnum" />
-          <label for="servant_2_arts">Arts枚数</label>
-          <input id="servant_2_arts" type="number" value="1" class="commandcardnum" />
-          <label for="servant_2_buster">Buster枚数</label>
-          <input id="servant_2_buster" type="number" value="1" class="commandcardnum" />
-        </div><!-- /servant_info -->
-        <div class="servant_info">
-          <label for="servant_3_name">サーヴァント三人目</label>
-          <input id="servant_3_name" type="text" />
-          <br />
-          <label for="servant_3_quick">Quick枚数</label>
-          <input id="servant_3_quick" type="number" value="1" class="commandcardnum" />
-          <label for="servant_3_arts">Arts枚数</label>
-          <input id="servant_3_arts" type="number" value="1" class="commandcardnum" />
-          <label for="servant_3_buster">Buster枚数</label>
-          <input id="servant_3_buster" type="number" value="1" class="commandcardnum" />
-        </div><!-- /servant_info -->
-        <div class="servant_info">
-          <label for="servant_4_name">サーヴァント四人目</label>
-          <input id="servant_4_name" type="text" />
-          <br />
-          <label for="servant_4_quick">Quick枚数</label>
-          <input id="servant_4_quick" type="number" value="1" class="commandcardnum" />
-          <label for="servant_4_arts">Arts枚数</label>
-          <input id="servant_4_arts" type="number" value="1" class="commandcardnum" />
-          <label for="servant_4_buster">Buster枚数</label>
-          <input id="servant_4_buster" type="number" value="1" class="commandcardnum" />
-        </div><!-- /servant_info -->
-        <div class="servant_info">
-          <label for="servant_5_name">サーヴァント五人目</label>
-          <input id="servant_5_name" type="text" />
-          <br />
-          <label for="servant_5_quick">Quick枚数</label>
-          <input id="servant_5_quick" type="number" value="1" class="commandcardnum" />
-          <label for="servant_5_arts">Arts枚数</label>
-          <input id="servant_5_arts" type="number" value="1" class="commandcardnum" />
-          <label for="servant_5_buster">Buster枚数</label>
-          <input id="servant_5_buster" type="number" value="1" class="commandcardnum" />
-        </div><!-- /servant_info -->
-        <div class="servant_info">
-          <label for="servant_6_name">サーヴァント六人目</label>
-          <input id="servant_6_name" type="text" />
-          <br />
-          <label for="servant_6_quick">Quick枚数</label>
-          <input id="servant_6_quick" type="number" value="1" class="commandcardnum" />
-          <label for="servant_6_arts">Arts枚数</label>
-          <input id="servant_6_arts" type="number" value="1" class="commandcardnum" />
-          <label for="servant_6_buster">Buster枚数</label>
-          <input id="servant_6_buster" type="number" value="1" class="commandcardnum" />
-        </div><!-- /servant_info -->
+        </div><!-- /cardleft -->
+        <div id="party_register">
+          <h2>パーティー情報編集</h2>
+          <div class="servant_info">
+            <label for="servant_1_name">サーヴァント一人目</label>
+            <input id="servant_1_name" type="text" />
+            <br />
+            <label for="servant_1_quick">Quick枚数</label>
+            <input id="servant_1_quick" type="number" value="1" class="commandcardnum" />
+            <label for="servant_1_arts">Arts枚数</label>
+            <input id="servant_1_arts" type="number" value="1" class="commandcardnum" />
+            <label for="servant_1_buster">Buster枚数</label>
+            <input id="servant_1_buster" type="number" value="1" class="commandcardnum" />
+          </div><!-- /servant_info -->
+          <div class="servant_info">
+            <label for="servant_2_name">サーヴァント二人目</label>
+            <input id="servant_2_name" type="text" />
+            <br />
+            <label for="servant_2_quick">Quick枚数</label>
+            <input id="servant_2_quick" type="number" value="1" class="commandcardnum" />
+            <label for="servant_2_arts">Arts枚数</label>
+            <input id="servant_2_arts" type="number" value="1" class="commandcardnum" />
+            <label for="servant_2_buster">Buster枚数</label>
+            <input id="servant_2_buster" type="number" value="1" class="commandcardnum" />
+          </div><!-- /servant_info -->
+          <div class="servant_info">
+            <label for="servant_3_name">サーヴァント三人目</label>
+            <input id="servant_3_name" type="text" />
+            <br />
+            <label for="servant_3_quick">Quick枚数</label>
+            <input id="servant_3_quick" type="number" value="1" class="commandcardnum" />
+            <label for="servant_3_arts">Arts枚数</label>
+            <input id="servant_3_arts" type="number" value="1" class="commandcardnum" />
+            <label for="servant_3_buster">Buster枚数</label>
+            <input id="servant_3_buster" type="number" value="1" class="commandcardnum" />
+          </div><!-- /servant_info -->
+          <div class="servant_info">
+            <label for="servant_4_name">サーヴァント四人目</label>
+            <input id="servant_4_name" type="text" />
+            <br />
+            <label for="servant_4_quick">Quick枚数</label>
+            <input id="servant_4_quick" type="number" value="1" class="commandcardnum" />
+            <label for="servant_4_arts">Arts枚数</label>
+            <input id="servant_4_arts" type="number" value="1" class="commandcardnum" />
+            <label for="servant_4_buster">Buster枚数</label>
+            <input id="servant_4_buster" type="number" value="1" class="commandcardnum" />
+          </div><!-- /servant_info -->
+          <div class="servant_info">
+            <label for="servant_5_name">サーヴァント五人目</label>
+            <input id="servant_5_name" type="text" />
+            <br />
+            <label for="servant_5_quick">Quick枚数</label>
+            <input id="servant_5_quick" type="number" value="1" class="commandcardnum" />
+            <label for="servant_5_arts">Arts枚数</label>
+            <input id="servant_5_arts" type="number" value="1" class="commandcardnum" />
+            <label for="servant_5_buster">Buster枚数</label>
+            <input id="servant_5_buster" type="number" value="1" class="commandcardnum" />
+          </div><!-- /servant_info -->
+          <div class="servant_info">
+            <label for="servant_6_name">サーヴァント六人目</label>
+            <input id="servant_6_name" type="text" />
+            <br />
+            <label for="servant_6_quick">Quick枚数</label>
+            <input id="servant_6_quick" type="number" value="1" class="commandcardnum" />
+            <label for="servant_6_arts">Arts枚数</label>
+            <input id="servant_6_arts" type="number" value="1" class="commandcardnum" />
+            <label for="servant_6_buster">Buster枚数</label>
+            <input id="servant_6_buster" type="number" value="1" class="commandcardnum" />
+          </div><!-- /servant_info -->
+        </div><!-- /servants_list -->
         <div id="share">
           <h2>このパーティー情報を読み込むURL</h2>
           <textarea id="party_encoded_url"></textarea>
