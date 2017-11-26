@@ -241,7 +241,9 @@ $(document).ready(function(){
     cursor: "move",
     opacity: 0.7,
     placeholder: "sorting_placeholder",
-    forcePlaceholderSize: true
+    forcePlaceholderSize: true,
+    cancel: ".commandcard",
+    axis: "y"
   });
 
   /* クエリパラメータpartyが指定されていたら、パーティー情報をデコードする */
