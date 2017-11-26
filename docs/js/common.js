@@ -239,7 +239,9 @@ $(document).ready(function(){
   /* ドラッグアンドドロップによるソートを有効化する */
   $("#servants_list").sortable({
     cursor: "move",
-    opacity: 0.7
+    opacity: 0.7,
+    placeholder: "sorting_placeholder",
+    forcePlaceholderSize: true
   });
 
   /* クエリパラメータpartyが指定されていたら、パーティー情報をデコードする */

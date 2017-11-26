@@ -23,6 +23,10 @@
   background-color: rgb(196, 236, 249);
 }
 
+.sorting_placeholder {
+  background-color: rgb(221, 255, 87);
+}
+
 .commands .commandcard {
   float: left;
   width: 50px;
